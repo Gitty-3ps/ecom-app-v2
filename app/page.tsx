@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "./page.module.css";
 import { stripe } from "@/lib/stripe";
 import { Button } from "@/components/ui/button";
@@ -38,6 +38,7 @@ export default async function Home() {
           alt="Banner Image" 
           width={450} 
           height={450}
+          priority={true}
         />
       </div>
     </section>

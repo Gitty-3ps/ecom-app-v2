@@ -11,14 +11,20 @@ interface Props {
 
 export const Carousel = ({ products }: Props) => {
   const [current, setCurrent] = useState<number>(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % products.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [products.length]);
+  }, [products.length, mounted]);
 
   const currentProduct = products[current];
 
@@ -34,6 +40,7 @@ export const Carousel = ({ products }: Props) => {
             layout="fill"
             objectFit="cover"
             className="transition-opacity duration-500 ease-in-out"
+            priority={true}
           />
         </div>
       )}

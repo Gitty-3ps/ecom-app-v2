@@ -1,5 +1,4 @@
 import { ProductDetail } from "@/components/product-detail";
-import { Button } from "@/components/ui/button";
 import { stripe } from "@/lib/stripe";
 
 export default async function ProductsPage({

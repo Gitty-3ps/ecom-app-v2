@@ -66,7 +66,7 @@ export default function CheckoutPage() {
         <input type="hidden" name="items" value={JSON.stringify(items)} />
         <Button type="submit" variant="default" className="w-full">
           Proceed to Payment
-        </Button>      
+        </Button>
       </form>
     </div>
   );
